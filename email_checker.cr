@@ -48,7 +48,7 @@ OptionParser.parse do |parser|
 
   parser.on "-s SENDER", "--sender=SENDER", "Sender email for checking. Default is <mailvalid@example.com>" do |sender|
     server = get_domain(sender)
-    account = get_account(email)
+    account = get_account(sender)
   end
 
   parser.on "-e ADDR", "--email=ADDR", "Email address for check" do |addr|
@@ -65,7 +65,6 @@ logger.log "Start checking."
 result = false
 
 TCPSocket.open(mx_server, mx_port) do |client|
-  client << "\n"
   logger.log response = client.gets
   break unless response.to_s.starts_with?("220")
   logger.log request = "HELO #{server}\n"
