@@ -1,4 +1,6 @@
-!!! Email checker
+### Email checker
+
+---
 
 Checks the possibility of sending an email to the specified address.
 Sometimes it is necessary to check the address specified by the user to avoid unnecessary loads and block the sending of messages to invalid addresses.
@@ -40,7 +42,7 @@ Email <press@google.com> is valid.
 Done.
 ```
 
-_ Todo:
+__Todo:__
 
 * Write get mx from DNS directly
 * Make multiple emails checking from file
