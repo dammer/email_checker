@@ -79,10 +79,10 @@ TCPSocket.open(mx_server, mx_port) do |client|
   client << request
   logger.log response = client.gets
   result = response.to_s.starts_with?("250")
-  puts "Email <#{email}> is #{ result ? "" : "in" }valid."
-  result
+  client << "QUIT\n"
 end
 
+puts "Email <#{email}> is #{ result ? "" : "in" }valid."
 logger.log "Done."
 exit
 
